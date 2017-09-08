@@ -59,7 +59,6 @@ group :development do
   gem 'bullet'
   gem 'rack-mini-profiler', require: false
   gem 'test-unit'
-  gem 'test-unit'
 end
 
 group :production do
