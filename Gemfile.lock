@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     actioncable (5.1.2)
       actionpack (= 5.1.2)
@@ -46,6 +46,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
+    airbrussh (1.3.0)
+      sshkit (>= 1.6.1, != 1.7.0)
     annotate (2.6.7)
       activerecord (>= 2.3.0)
       rake (~> 10.4.2, >= 10.4.2)
@@ -53,6 +55,7 @@ GEM
     arel (8.0.0)
     bcrypt (3.1.11)
     bindex (0.5.0)
+    buftok (0.2.0)
     builder (3.2.3)
     bullet (5.6.1)
       activesupport (>= 3.0.0)
@@ -60,6 +63,20 @@ GEM
     by_star (2.2.1)
       activesupport
     byebug (9.0.6)
+    capistrano (3.8.2)
+      airbrussh (>= 1.0.0)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 1.9.0)
+    capistrano-bundler (1.2.0)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2)
+    capistrano-rails (1.3.0)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
+    capistrano-rbenv (2.1.1)
+      capistrano (~> 3.1)
+      sshkit (~> 1.3)
     capybara (2.14.4)
       addressable
       mime-types (>= 1.16)
@@ -83,6 +100,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    daemons (1.2.3)
     delayed_job (4.1.3)
       activesupport (>= 3.0, < 5.2)
     delayed_job_active_record (4.1.2)
@@ -100,6 +118,7 @@ GEM
       rails (> 3.1)
     easy_settings (0.1.2)
       hashie (~> 3.4.3)
+    equalizer (0.0.10)
     erubi (1.6.1)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -108,6 +127,10 @@ GEM
     factory_girl_rails (4.8.0)
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
+    faraday (0.9.2)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.9.2)
+      faraday (>= 0.7.4, < 0.10)
     ffi (1.9.18)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
@@ -128,16 +151,21 @@ GEM
       haml (>= 4.0, < 6)
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
+    http (1.0.4)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 1.0.1)
+      http_parser.rb (~> 0.6.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
+    http-form_data (1.0.1)
+    http_parser.rb (0.6.0)
     i18n (0.8.6)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
-    jquery-rails (4.3.1)
-      rails-dom-testing (>= 1, < 3)
-      railties (>= 4.2.0)
-      thor (>= 0.14, < 2.0)
+    json (1.8.6)
+    jwt (1.5.4)
     kaminari (1.0.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.0.1)
@@ -150,6 +178,10 @@ GEM
       activerecord
       kaminari-core (= 1.0.1)
     kaminari-core (1.0.1)
+    koala (2.4.0)
+      addressable
+      faraday
+      multi_json (>= 1.3.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -171,6 +203,8 @@ GEM
       nokogiri (~> 1.6)
       ntlm-http (~> 0.1, >= 0.1.1)
       webrobots (>= 0.0.9, < 0.2)
+    memoizable (0.4.2)
+      thread_safe (~> 0.3, >= 0.3.1)
     metaclass (0.0.4)
     method_source (0.8.2)
     mime-types (3.1)
@@ -188,15 +222,49 @@ GEM
       ruby-progressbar
     mocha (1.2.1)
       metaclass (~> 0.0.1)
+    msgpack (1.1.0)
     multi_json (1.12.1)
+    multi_xml (0.5.5)
+    multipart-post (2.0.0)
     mysql2 (0.3.21)
+    naught (1.1.0)
     net-http-digest_auth (1.4.1)
     net-http-persistent (2.9.4)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (4.1.0)
     nio4r (2.1.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
     ntlm-http (0.1.1)
+    oauth (0.5.1)
+    oauth2 (1.2.0)
+      faraday (>= 0.8, < 0.10)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 3)
+    omniauth (1.3.1)
+      hashie (>= 1.2, < 4)
+      rack (>= 1.0, < 3)
+    omniauth-facebook (4.0.0)
+      omniauth-oauth2 (~> 1.2)
+    omniauth-oauth (1.1.0)
+      oauth
+      omniauth (~> 1.0)
+    omniauth-oauth2 (1.4.0)
+      oauth2 (~> 1.0)
+      omniauth (~> 1.2)
+    omniauth-tumblr (1.2)
+      multi_json
+      omniauth-oauth (~> 1.0)
+    omniauth-twitter (1.2.1)
+      json (~> 1.3)
+      omniauth-oauth (~> 1.1)
     orm_adapter (0.5.0)
+    passenger (5.1.4)
+      rack
+      rake (>= 0.8.1)
     polyamorous (1.3.1)
       activerecord (>= 3.0)
     power_assert (1.0.2)
@@ -212,8 +280,12 @@ GEM
     public_suffix (2.0.5)
     puma (3.9.1)
     rack (2.0.3)
+    rack-cors (0.4.0)
     rack-mini-profiler (0.10.5)
       rack (>= 1.2.0)
+    rack-post_body_msgpack_parser (0.1.0)
+      msgpack
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.1.2)
@@ -283,6 +355,7 @@ GEM
     shoulda-context (1.2.2)
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
+    simple_oauth (0.3.1)
     slop (3.6.0)
     spring (2.0.2)
       activesupport (>= 4.2)
@@ -297,15 +370,36 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.3.13)
+    sshkit (1.14.0)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     temple (0.8.0)
     test-unit (3.2.5)
       power_assert
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    tumblr_client (0.8.5)
+      faraday (~> 0.9.0)
+      faraday_middleware (~> 0.9.0)
+      json
+      mime-types
+      oauth
+      simple_oauth
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.3)
+    twitter (5.16.0)
+      addressable (~> 2.3)
+      buftok (~> 0.2.0)
+      equalizer (= 0.0.10)
+      faraday (~> 0.9.0)
+      http (~> 1.0)
+      http_parser.rb (~> 0.6.0)
+      json (~> 1.8)
+      memoizable (~> 0.4.0)
+      naught (~> 1.0)
+      simple_oauth (~> 0.3.0)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
     uglifier (3.2.0)
@@ -339,9 +433,12 @@ DEPENDENCIES
   bullet
   by_star
   byebug
-  capybara (~> 2.13)
+  capistrano-rails
+  capistrano-rbenv
+  capybara
   carrierwave
   coffee-rails (~> 4.2)
+  daemons
   delayed_job_active_record
   devise
   dropzonejs-rails
@@ -350,8 +447,8 @@ DEPENDENCIES
   font-awesome-sass
   haml-rails
   jbuilder (~> 2.5)
-  jquery-rails
   kaminari
+  koala
   listen (>= 3.0.5, < 3.2)
   masonry-rails
   materialize-sass
@@ -360,11 +457,17 @@ DEPENDENCIES
   minitest-reporters
   mocha
   mysql2 (~> 0.3.20)
+  omniauth-facebook
+  omniauth-tumblr
+  omniauth-twitter
+  passenger
   pry-byebug
   pry-rails
   puma (~> 3.7)
+  rack-cors
   rack-mini-profiler
-  rails (~> 5.1.1)
+  rack-post_body_msgpack_parser
+  rails (~> 5.1.2)
   rails_autolink
   ransack
   redcarpet
@@ -378,7 +481,9 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   sqlite3
   test-unit
+  tumblr_client
   turbolinks (~> 5)
+  twitter
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
