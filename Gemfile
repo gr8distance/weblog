@@ -81,6 +81,7 @@ gem 'mysql2', '~> 0.3.20'
 gem 'font-awesome-sass'
 gem 'masonry-rails'
 gem 'materialize-sass'
+gem 'jquery-rails'
 
 # ソーシャル系
 gem 'koala'
