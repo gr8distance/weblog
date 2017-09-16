@@ -1,6 +1,6 @@
 FROM ruby:2.4.1
 
-ENV APP_ROOT /ct
+ENV APP_ROOT /app
 
 WORKDIR $APP_ROOT
 
