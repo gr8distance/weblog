@@ -9,3 +9,5 @@
     - @posts.each do |post|
       .col.s12.m3
         = render "parts/card", post: post
+  .center
+    = paginate @posts
