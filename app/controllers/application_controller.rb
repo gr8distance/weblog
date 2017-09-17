@@ -9,9 +9,11 @@ class ApplicationController < ActionController::Base
     @title ||= 'Weblog'
   end
 
-  # def configure_permitted_parameters
-  #   devise_parameter_sanitizer.for(:sign_up) << :name
-  # end
+  def not_admin
+    unless current_user.admin
+      redirect_to :root, notice: 'You are not a admin'
+    end
+  end
 
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :admin])

@@ -6,11 +6,11 @@
         - @post.errors.full_messages.each do |message|
           %li= message
 
-  .field
+  .input-field
     = f.label :title
     = f.text_field :title
-  .field
+  .input-field
     = f.label :body
-    = f.text_area :body
-  .actions
-    = f.submit 'Save'
+    = f.text_area :body, class: 'materialize-textarea'
+  .actions.center
+    = f.submit 'Save', class: 'btn-large'
