@@ -1,12 +1,15 @@
-%p#notice= notice
+.container
+  .row
+    .col.s8
+      .center
+        %p.font_size_18= @post.updated_at.strftime('%Y/%m/%d')
+        = image_tag @post.image, class: 'responsive-img circle', width: 120
+      = @post.title
 
-%p
-  %b Title:
-  = @post.title
-%p
-  %b Body:
-  = @post.body
-
-= link_to 'Edit', edit_post_path(@post)
-\|
-= link_to 'Back', posts_path
+      %p= simple_format(@post.body)
+        
+    .col.s4
+      %ul
+        - 10.times do |i|
+          %li any fonts
+        
