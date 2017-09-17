@@ -8,6 +8,6 @@
 
       %ul.right.hide-on-med-and-down
         - if user_signed_in?
-          %li= current_user.name
+          %li= link_to '記事を書く', new_post_path
         - else
           %li= link_to 'Login', new_user_session_path
