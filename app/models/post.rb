@@ -12,5 +12,6 @@
 #
 
 class Post < ApplicationRecord
-  validates_presence_of :title, :body, :auther
+  mount_uploader :image, ImageUploader
+  validates_presence_of :title, :body, :author
 end

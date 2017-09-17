@@ -1,12 +1,10 @@
 .card.large.teal.lighten-5
   .card-image
-    = image_tag '/image.jpg', class: "responsive-img"
+    = image_tag post.image, class: 'responsive-img'
   .card-content
     .center
-      %span= Time.now.strftime("%Y/%m/%d") 
-    %h6.card-title Think Different
-    %p
-      When you grow up, you tend to get told the world is the way it is and your life is just to live your life inside the world.
-      Try not to bash into the walls too much. Try to have a nice family life, have fun, save a little money.
+      %span= post.updated_at.strftime("%Y/%m/%d") 
+    %h6.card-title= post.title
+    %p= simple_format(post.body)
   .card-action.teal.lighten-4
-    = link_to post.title, '', class: 'white-text'
+    = link_to '記事を読む', post, class: 'white-text'

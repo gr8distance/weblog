@@ -16,5 +16,5 @@ require 'test_helper'
 class PostTest < ActiveSupport::TestCase
   should validate_presence_of(:title)
   should validate_presence_of(:body)
-  should validate_presence_of(:auther)
+  should validate_presence_of(:author)
 end
