@@ -12,6 +12,9 @@
   .input-field
     = f.label :body
     = f.text_area :body, class: 'materialize-textarea'
+  .input-field
+    = f.label :image
+    = f.file_field :image
   .actions.center
-    = f.hidden_field :auther, value: current_user.id
+    = f.hidden_field :author, value: current_user.id
     = f.submit 'Save', class: 'btn-large'
