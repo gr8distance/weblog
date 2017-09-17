@@ -13,4 +13,5 @@
     = f.label :body
     = f.text_area :body, class: 'materialize-textarea'
   .actions.center
+    = f.hidden_field :auther, value: current_user.id
     = f.submit 'Save', class: 'btn-large'

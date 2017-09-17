@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :title
-  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_sign_up_params, only: [:create], if: :devise_controller?
   protect_from_forgery with: :exception
 
   private
@@ -10,9 +10,8 @@ class ApplicationController < ActionController::Base
   end
 
   def not_admin
-    unless current_user.admin
-      redirect_to :root, notice: 'You are not a admin'
-    end
+    redirect_to :root, notice: 'Not a member' unless user_signed_in?
+    redirect_to :root, notice: 'You are not a admin' unless current_user.admin
   end
 
   def configure_sign_up_params
