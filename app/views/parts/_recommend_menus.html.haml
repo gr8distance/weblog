@@ -5,4 +5,3 @@
         = image_tag post.image, class: 'circle'
       = link_to post do
         %span.teal-text.title= truncate(post.title, length: 12)
-        %p= simple_format(truncate(post.body, length: 24))
