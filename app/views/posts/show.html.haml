@@ -2,14 +2,10 @@
   .row
     .col.s8
       .center
-        %p.font_size_18= @post.updated_at.strftime('%Y/%m/%d')
-        = image_tag @post.image, class: 'responsive-img circle', width: 120
-      = @post.title
-
+        %p.font_size_14.grey-text= @post.updated_at.strftime('%Y/%m/%d')
+        = image_tag @post.image, class: 'responsive-img circle', size: 120
+      %h3.font_size_28.bold= @post.title
       %p= simple_format(@post.body)
         
     .col.s4
-      %ul
-        - 10.times do |i|
-          %li any fonts
-        
+      = render 'parts/recommend_menus', posts: @recommend_posts

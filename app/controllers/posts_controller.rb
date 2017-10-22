@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @recommend_posts = Post.recommend
   end
 
   # GET /posts/new

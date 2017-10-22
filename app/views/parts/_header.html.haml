@@ -2,10 +2,6 @@
   %nav.nav-wrapper.teal.accent-4
     = link_to @title, :root, class: 'brand-logo center'
     .container
-      %ul.hide-on-med-and-down
-        %li= link_to 'First'
-        %li= link_to 'Second'
-
       %ul.right.hide-on-med-and-down
         - if user_signed_in?
           %li= link_to '記事を書く', new_post_path

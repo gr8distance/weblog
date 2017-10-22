@@ -1,0 +1,8 @@
+%ul.collection
+  - posts.each do |post|
+    %li.collection-item.avatar
+      = link_to post do
+        = image_tag post.image, class: 'circle'
+      = link_to post do
+        %span.teal-text.title= truncate(post.title, length: 12)
+        %p= simple_format(truncate(post.body, length: 24))

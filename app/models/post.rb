@@ -14,4 +14,8 @@
 class Post < ApplicationRecord
   mount_uploader :image, ImageUploader
   validates_presence_of :title, :body, :author
+
+  scope(:recommend, lambda do
+          order(updated_at: :desc).limit(6)
+        end)
 end
