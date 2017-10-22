@@ -118,3 +118,5 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-tumblr'
 gem 'omniauth-twitter'
+
+gem 'coderay'
