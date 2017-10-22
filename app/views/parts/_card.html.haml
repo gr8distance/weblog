@@ -1,6 +1,7 @@
 .card.large.teal.lighten-5
   .card-image.waves-effect.waves-light
-    = image_tag post.image, class: 'responsive-img'
+    = link_to post do
+      = image_tag post.image, class: 'responsive-img'
   .card-content
     .center
       %span= post.updated_at.strftime("%Y/%m/%d") 
