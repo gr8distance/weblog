@@ -3,5 +3,5 @@
 docker-compose stop
 docker-compose up --build -d
 
-bundle exec rake assets:precompile RAILS_ENV=production
-touch tmp/restart.txt
+docker-compose exec app bundle exec rake assets:precompile RAILS_ENV=production
+docker-compose exec app touch tmp/restart.txt
