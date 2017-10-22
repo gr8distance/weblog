@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   private
 
   def title
-    @title ||= 'Weblog'
+    @title ||= 'Aimerald'
   end
 
   def not_admin
