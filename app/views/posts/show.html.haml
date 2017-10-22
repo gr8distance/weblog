@@ -1,22 +1,11 @@
-#bg.parallax-container
-  .parallax
-    = image_tag @post.image, class: 'bg'
-  .container
-    .row
-      .col.s8
-        .center
-          %p.font_size_14.grey-text= @post.updated_at.strftime('%Y/%m/%d')
-          = image_tag @post.image, class: 'responsive-img circle', size: 120
-        %h3.font_size_28.bold= @post.title
-        %p= markdown(@post.body).html_safe
+.container
+  .row
+    .col.s8
+      .center
+        %p.font_size_14.grey-text= @post.updated_at.strftime('%Y/%m/%d')
+        = image_tag @post.image, class: 'responsive-img circle', size: 120
+      %h3.font_size_28.bold= @post.title
+      %p= markdown(@post.body).html_safe
 
-      .col.s4
-        = render 'parts/recommend_menus', posts: @recommend_posts
-
-:css
-  .bg{
-  opacity: 0.333;
-  -webkit-filter: blur(10px);
-  filter: blur(10px);
-  margin: -10px;
-  }
+    .col.s4
+      = render 'parts/recommend_menus', posts: @recommend_posts
