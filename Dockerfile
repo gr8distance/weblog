@@ -1,13 +1,11 @@
-FROM ruby:2.4.1
+FROM ruby:2.5
 
 ENV APP_ROOT /app
 
 WORKDIR $APP_ROOT
 
 RUN apt-get update\
-		&& apt-get install -y nodejs npm
-
-RUN npm install yarn -g
+		&& apt-get install -y nodejs
 
 COPY Gemfile Gemfile
 COPY Gemfile.lock Gemfile.lock

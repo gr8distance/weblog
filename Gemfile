@@ -6,9 +6,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.2'
+gem 'rails', '~> 5.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -45,7 +44,9 @@ group :development, :test do
   gem 'mocha'
   gem 'shoulda', '~> 3.5'
   gem 'shoulda-matchers', '~> 2.5'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
+  gem 'bullet'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -55,56 +56,27 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-
-  gem 'bullet'
   gem 'rack-mini-profiler', require: false
   gem 'test-unit'
 end
 
 group :production do
   gem 'daemons'
-  gem 'passenger'
   gem 'rack-post_body_msgpack_parser'
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# 全てに関わる
-gem 'rack-cors', require: 'rack/cors'
-
-gem 'mysql2', '~> 0.3.20'
-
-# デザイン系
+gem 'mysql2'
 gem 'font-awesome-sass'
-gem 'masonry-rails'
 gem 'materialize-sass'
 gem 'jquery-rails'
-
-# ソーシャル系
-gem 'koala'
-gem 'tumblr_client'
-gem 'twitter'
-
-# サーバー系
 gem 'activerecord-session_store'
-gem 'delayed_job_active_record'
 gem 'whenever', require: false
-
-# 便利系
-gem 'byebug'
-gem 'dropzonejs-rails'
-gem 'easy_settings'
-gem 'mechanize'
-gem 'pry-byebug'
-gem 'pry-rails'
 gem 'rails_autolink'
 gem 'redcarpet'
 gem 'rmagick', require: false
-
-# 開発スピード効率化
 gem 'annotate', '~> 2.6.6'
 gem 'by_star'
 gem 'carrierwave'
@@ -112,11 +84,4 @@ gem 'haml-rails'
 gem 'kaminari'
 gem 'ransack'
 gem 'remotipart'
-
-# 認証系
 gem 'devise'
-gem 'omniauth-facebook'
-gem 'omniauth-tumblr'
-gem 'omniauth-twitter'
-
-gem 'coderay'
